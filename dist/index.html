@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Locomotive Scroll</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-bihjr_wj.css">
+</head>
+<body data-scroll-container>
+  <section class="navbar">
+    <ul class="navbar-links-list">
+      <li class="navbar-list-item">
+        <p class="navbar-item">MARSHA</p>
+      </li>
+      <li class="navbar-list-item">
+        <p class="navbar-item">LENATHEA</p>
+      </li>
+      <li class="navbar-list-item">
+        <p class="navbar-item">JKT48</p>
+      </li>
+    </ul>
+  </section>
+
+
+  <section class="content">
+    <div class="content-text">
+      <h2>Seperti <span class="animated-text">pizza</span> 🍕 <br />
+        yang selalu dinantikan semua orang </h2>
+      <p>Selalu nantikan aku ya..</p>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="container-left" data-scroll data-scroll-speed="17" data-scroll-delay="1">
+      <h1 class="hero-text">
+        Halo <br />
+        Aku Marsha 👋
+      </h1>
+    </div>
+    <div class="container-right" data-scroll data-scroll-speed="1" data-scroll-delay="1.7">
+      <div class="hero-image">
+        <img class="gambar" src="/assets/marsha-_WvZv-9i.jpg" alt="Marsha">
+      </div>
+    </div>
+  </section>  
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const scroller = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        lerp: 0.05,
+      });
+
+      const $animatedText = $('.animated-text');
+      const text = $animatedText.text();
+      const chars = text.split('');
+
+      const spanText = chars.map((letter, index) => {
+        return `<span data-scroll data-scroll-speed="1.5" data-scroll-delay="${index * 0.03}">${letter}</span>`;
+      }).join('');
+
+      $animatedText.html(spanText);
+      
+      scroller.update();
+    });
+  </script>
+</body>
+</html>
