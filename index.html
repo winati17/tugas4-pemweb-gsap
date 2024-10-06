@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Locomotive Scroll</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+  <section class="navbar">
+    <ul class="navbar-links-list">
+      <li class="navbar-list-item">
+        <p class="navbar-item">MARSHA</p>
+      </li>
+      <li class="navbar-list-item">
+        <p class="navbar-item">LENATHEA</p>
+      </li>
+      <li class="navbar-list-item">
+        <p class="navbar-item">JKT48</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="content">
+    <div class="content-text">
+      <h2>Seperti <span>pizza</span>🍕 <br />
+        yang selalu dinantikan semua orang </h2>
+      <p>Selalu nantikan aku ya..</p>
+    </div>
+  </section>
+
+  <section class="hero" data-scroll-container>
+    <div class="container-left" data-scroll-section>
+      <h1 class="hero-text" data-scroll data-scroll-speed="1">
+        Halo <br />
+        Aku Marsha
+      </h1>
+    </div>
+    <div class="container-right">
+      <div class="hero-image">
+        <img class="gambar" src="./marsha.jpg" alt="Marsha  " />
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
+  <script>
+    (function () {
+      const locomotiveScroll = new LocomotiveScroll();
+    })();
+
+
+    $(document).ready(function () {
+      const scroller = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        lerp: 0.05,
+      });
+
+      const text = $('span').text();
+      const chars = text.split('');
+
+      console.log('Ini chars masih array lho', chars);
+
+      const spanText = chars.map((letterTersplit, index) => {
+        return `<span data-scroll-speed="2" data-scroll-delay="${index * 0.08}">${letterTersplit}</span>`;
+      }).join('');
+
+      console.log(spanText)
+
+      console.log($('span').html(spanText));
+      console.log("Hehe")
+
+      scroller.update();
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet" />
+</body>
+
+</html>
