@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Locomotive Scroll</title>
   <link rel="stylesheet" href="./style.css">
-  <!-- Include Locomotive Scroll CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
 </head>
 <body data-scroll-container>
@@ -32,22 +31,20 @@
   </section>
 
   <section class="hero">
-    <div class="container-left">
-      <h1 class="hero-text" data-scroll data-scroll-speed="1">
+    <div class="container-left" data-scroll data-scroll-speed="17" data-scroll-delay="1">
+      <h1 class="hero-text">
         Halo <br />
-        Aku Marsha
+        Aku Marsha 👋
       </h1>
     </div>
-    <div class="container-right">
+    <div class="container-right" data-scroll data-scroll-speed="1" data-scroll-delay="1.7">
       <div class="hero-image">
         <img class="gambar" src="./marsha.jpg" alt="Marsha">
       </div>
     </div>
-  </section>
+  </section>  
 
-  <!-- Include jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Include Locomotive Scroll JS -->
   <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
   <script>
     $(document).ready(function () {
@@ -62,11 +59,11 @@
       const chars = text.split('');
 
       const spanText = chars.map((letter, index) => {
-        return `<span data-scroll data-scroll-speed="2" data-scroll-delay="${index * 0.08}">${letter}</span>`;
+        return `<span data-scroll data-scroll-speed="1.5" data-scroll-delay="${index * 0.03}">${letter}</span>`;
       }).join('');
 
       $animatedText.html(spanText);
-
+      
       scroller.update();
     });
   </script>
